@@ -1,8 +1,26 @@
 export class ResistorColor {
-  private colors: string[];
+    private colors: string[];
+    private color_map: { [index: string]: number } = {
+        "black": 0,
+        "brown": 1,
+        "red": 2,
+        "orange": 3,
+        "yellow": 4,
+        "green": 5,
+        "blue": 6,
+        "violet": 7,
+        "grey": 8,
+        "white": 9
+    }
 
-  constructor(colors: string[]) {
-    this.colors = colors;
-  }
-  value = (): number => 0;
+    constructor(colors: string[]) {
+        if (colors.length < 2) {
+            throw new Error('At least two colors need to be present');
+        }
+        this.colors = colors;
+    }
+
+    value = (): number => {
+        return this.color_map[this.colors[0]] * 10 + this.color_map[this.colors[1]]
+    };
 }
