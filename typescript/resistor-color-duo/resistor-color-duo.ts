@@ -1,19 +1,21 @@
-export class ResistorColor {
-    private colors: string[];
-    private color_map: { [index: string]: number } = {
-        "black": 0,
-        "brown": 1,
-        "red": 2,
-        "orange": 3,
-        "yellow": 4,
-        "green": 5,
-        "blue": 6,
-        "violet": 7,
-        "grey": 8,
-        "white": 9
-    }
+const color2Resistor = {
+    "black": 0,
+    "brown": 1,
+    "red": 2,
+    "orange": 3,
+    "yellow": 4,
+    "green": 5,
+    "blue": 6,
+    "violet": 7,
+    "grey": 8,
+    "white": 9
+}
+type Color = keyof typeof color2Resistor
 
-    constructor(colors: string[]) {
+export class ResistorColor {
+    private colors: Color[];
+
+    constructor(colors: Color[]) {
         if (colors.length < 2) {
             throw new Error('At least two colors need to be present');
         }
@@ -21,6 +23,7 @@ export class ResistorColor {
     }
 
     value = (): number => {
-        return this.color_map[this.colors[0]] * 10 + this.color_map[this.colors[1]]
+        const [color0, color1] = this.colors
+        return color2Resistor[color0] * 10 + color2Resistor[color1]
     };
 }
