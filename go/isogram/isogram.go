@@ -1,22 +1,21 @@
 package isogram
 
-import (
-	"strings"
-	"unicode"
-)
+import "unicode"
 
-// IsIsogram takes a string as input and return whether the input is Isogram.
+// IsIsogram takes a string as input and return whether the input is isogram.
 // definition of isogram is there are no duplicate letters.
 func IsIsogram(input string) bool {
-	set := make(map[rune]bool)
-	for _, val := range strings.ToLower(input) {
+	set := make(map[rune]int)
+	for _, val := range input {
 		if !unicode.IsLetter(val) {
 			continue
 		}
-		if _, ok := set[val]; ok {
+		c := unicode.ToLower(val)
+		if set[c] >= 1 {
 			return false
+		} else {
+			set[c] += 1
 		}
-		set[val] = true
 	}
 	return true
 }
