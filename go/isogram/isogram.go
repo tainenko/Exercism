@@ -13,9 +13,8 @@ func IsIsogram(input string) bool {
 		c := unicode.ToLower(val)
 		if set[c] >= 1 {
 			return false
-		} else {
-			set[c] += 1
 		}
+		set[c] += 1
 	}
 	return true
 }
