@@ -14,7 +14,7 @@ func IsIsogram(input string) bool {
 		if set[c] >= 1 {
 			return false
 		}
-		set[c] ++
+		set[c]++
 	}
 	return true
 }
