@@ -3,20 +3,16 @@ package diffsquares
 import "math"
 
 // SquareOfSum takes a int as input and return the square of sum.
-func SquareOfSum(target int) (result int) {
-	for i := 1; i <= target; i++ {
-		result += i
-	}
-	return result * result
+// formula: 1+2+3+...+n=n*(n+1)/2
+func SquareOfSum(n int) (result int) {
+	sum := n * (n + 1) / 2
+	return sum * sum
 }
 
 // SumOfSquares takes a int as input and return the sum of square.
-func SumOfSquares(target int) (result int) {
-	for i := 1; i <= target; i++ {
-		result += i * i
-	}
-	return
-
+// formula: 1*1+2*2+3*3+...+n*n=n*(n+1)*(2n+1)/6
+func SumOfSquares(n int) (result int) {
+	return n * (n + 1) * (2*n + 1) / 6
 }
 
 // Difference function would return the absolute difference between SquareOfSum and SumOfSquares
