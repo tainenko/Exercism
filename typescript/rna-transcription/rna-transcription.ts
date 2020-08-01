@@ -1,6 +1,6 @@
-type NucleotidesOfDna = "G" | "C" | "T" | "A"
-type NucleotidesOfRna = "C" | "G" | "A" | "U"
-const NucleotidesMap: Record<string, NucleotidesOfRna> = {
+type DnaNucleotide = "G" | "C" | "T" | "A"
+type RnaNucleotide = "C" | "G" | "A" | "U"
+const NucleotidesMap: Record<DnaNucleotide, RnaNucleotide> = {
     "G": "C",
     "C": "G",
     "T": "A",
@@ -9,22 +9,19 @@ const NucleotidesMap: Record<string, NucleotidesOfRna> = {
 
 class Transcriptor {
     toRna = (dna: string): string => {
-        return dna.split('').map(this.convertNucleotide).join('')
+        return dna.replace(/./g, this.convertNucleotide)
     }
 
-    convertNucleotide = (strand: string): NucleotidesOfRna => {
-        if (!this.isNucleotidesOfDna(strand)) {
-            this.raiseInvalidInputError()
+    convertNucleotide = (strand: string): RnaNucleotide => {
+        if (this.isNucleotidesOfDna(strand)) {
+            return NucleotidesMap[strand]
+        } else {
+            throw new Error("Invalid input DNA.")
         }
-        return NucleotidesMap[strand]
     }
 
-    isNucleotidesOfDna = (strand: string): strand is NucleotidesOfDna => {
-        return NucleotidesMap[strand] !== undefined
-    }
-
-    raiseInvalidInputError = (): void => {
-        throw new Error("Invalid input DNA.")
+    isNucleotidesOfDna = (strand: string): strand is DnaNucleotide => {
+        return NucleotidesMap[strand as DnaNucleotide] !== undefined
     }
 }
 
