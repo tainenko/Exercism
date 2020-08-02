@@ -8,20 +8,20 @@ const NucleotidesMap: Record<DnaNucleotide, RnaNucleotide> = {
 }
 
 class Transcriptor {
-    toRna = (dna: string): string => {
-        return dna.replace(/./g, this.convertNucleotide)
+    toRna = (dnaStrand: string): string => {
+        return dnaStrand.replace(/./g, this.convertNucleotide)
     }
 
-    convertNucleotide = (strand: string): RnaNucleotide => {
-        if (this.isNucleotidesOfDna(strand)) {
-            return NucleotidesMap[strand]
+    convertNucleotide = (nucleotide: string): RnaNucleotide => {
+        if (this.isNucleotidesOfDna(nucleotide)) {
+            return NucleotidesMap[nucleotide]
         } else {
             throw new Error("Invalid input DNA.")
         }
     }
 
-    isNucleotidesOfDna = (strand: string): strand is DnaNucleotide => {
-        return strand in NucleotidesMap
+    isNucleotidesOfDna = (nucleotide: string): nucleotide is DnaNucleotide => {
+        return nucleotide in NucleotidesMap
     }
 }
 
