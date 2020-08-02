@@ -21,7 +21,7 @@ class Transcriptor {
     }
 
     isNucleotidesOfDna = (strand: string): strand is DnaNucleotide => {
-        return NucleotidesMap[strand as DnaNucleotide] !== undefined
+        return strand in NucleotidesMap
     }
 }
 
