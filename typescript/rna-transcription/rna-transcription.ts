@@ -13,14 +13,14 @@ class Transcriptor {
     }
 
     convertNucleotide = (nucleotide: string): RnaNucleotide => {
-        if (this.isNucleotidesOfDna(nucleotide)) {
+        if (this.isDnaNucleotide(nucleotide)) {
             return NucleotidesMap[nucleotide]
         } else {
             throw new Error("Invalid input DNA.")
         }
     }
 
-    isNucleotidesOfDna = (nucleotide: string): nucleotide is DnaNucleotide => {
+    isDnaNucleotide = (nucleotide: string): nucleotide is DnaNucleotide => {
         return nucleotide in NucleotidesMap
     }
 }
