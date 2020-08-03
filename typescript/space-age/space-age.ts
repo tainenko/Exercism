@@ -7,8 +7,6 @@ enum OrbitalPeriod {
     Saturn = 29.447498,
     Uranus = 84.016846,
     Neptune = 164.79132,
-
-
 }
 
 const round = (input: number): number => {
@@ -38,32 +36,29 @@ class SpaceAge {
         return this.planetAge(OrbitalPeriod.Mercury)
     }
 
-    onVenus() {
+    onVenus(): number {
         return this.planetAge(OrbitalPeriod.Venus)
     }
 
-    onMars() {
+    onMars(): number {
         return this.planetAge(OrbitalPeriod.Mars)
     }
 
-    onJupiter() {
+    onJupiter(): number {
         return this.planetAge(OrbitalPeriod.Jupiter)
     }
 
-    onSaturn() {
+    onSaturn(): number {
         return this.planetAge(OrbitalPeriod.Saturn)
     }
 
-    onUranus() {
+    onUranus(): number {
         return this.planetAge(OrbitalPeriod.Uranus)
-
     }
 
-    onNeptune() {
+    onNeptune(): number {
         return this.planetAge(OrbitalPeriod.Neptune)
     }
-
-
 }
 
 export default SpaceAge;
