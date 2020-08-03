@@ -15,17 +15,17 @@ const round = (input: number): number => {
 
 class SpaceAge {
     public seconds: number
-    private readonly earthYear: number
+    private readonly ageInEarthYear: number
     private readonly earthYearInSecond: number
 
-    constructor(seconds: number) {
-        this.seconds = seconds
+    constructor(ageInSecond: number) {
+        this.seconds = ageInSecond
         this.earthYearInSecond = 31557600
-        this.earthYear = seconds / this.earthYearInSecond
+        this.ageInEarthYear = ageInSecond / this.earthYearInSecond
     }
 
     private planetAge(planetPeriod: OrbitalPeriod): number {
-        return round(this.earthYear / planetPeriod)
+        return round(this.ageInEarthYear / planetPeriod)
     }
 
     onEarth(): number {
