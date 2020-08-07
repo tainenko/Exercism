@@ -1,3 +1,5 @@
+type Planet = "Earth" | "Mercury" | "Venus" | "Mars" | "Jupiter" | "Saturn" | "Uranus" | "Neptune"
+
 enum OrbitalPeriod {
     Earth = 1,
     Mercury = 0.2408467,
@@ -16,48 +18,47 @@ const round = (input: number): number => {
 class SpaceAge {
     public seconds: number
     private readonly ageInEarthYear: number
-    private readonly earthYearInSecond: number
+    private readonly EARTH_YEAR_IN_SECOND = 31557600
 
     constructor(ageInSecond: number) {
         this.seconds = ageInSecond
-        this.earthYearInSecond = 31557600
-        this.ageInEarthYear = ageInSecond / this.earthYearInSecond
+        this.ageInEarthYear = ageInSecond / this.EARTH_YEAR_IN_SECOND
     }
 
-    private planetAge(planetPeriod: OrbitalPeriod): number {
-        return round(this.ageInEarthYear / planetPeriod)
+    private planetAge(planet: Planet): number {
+        return round(this.ageInEarthYear / OrbitalPeriod[planet])
     }
 
     onEarth(): number {
-        return this.planetAge(OrbitalPeriod.Earth)
+        return this.planetAge("Earth")
     }
 
     onMercury(): number {
-        return this.planetAge(OrbitalPeriod.Mercury)
+        return this.planetAge("Mercury")
     }
 
     onVenus(): number {
-        return this.planetAge(OrbitalPeriod.Venus)
+        return this.planetAge("Venus")
     }
 
     onMars(): number {
-        return this.planetAge(OrbitalPeriod.Mars)
+        return this.planetAge("Mars")
     }
 
     onJupiter(): number {
-        return this.planetAge(OrbitalPeriod.Jupiter)
+        return this.planetAge("Jupiter")
     }
 
     onSaturn(): number {
-        return this.planetAge(OrbitalPeriod.Saturn)
+        return this.planetAge("Saturn")
     }
 
     onUranus(): number {
-        return this.planetAge(OrbitalPeriod.Uranus)
+        return this.planetAge("Uranus")
     }
 
     onNeptune(): number {
-        return this.planetAge(OrbitalPeriod.Neptune)
+        return this.planetAge("Neptune")
     }
 }
 
