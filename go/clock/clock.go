@@ -2,43 +2,31 @@ package clock
 
 import "fmt"
 
-// Clock has two integer attributes: hour and minute.
+// Clock has one attribute ,minute.
 type Clock struct {
-	hour   int
 	minute int
 }
 
-// New function is a Clock constructor
+// New would return a Clock instance
 func New(hour, minute int) Clock {
-	c := Clock{hour, minute}
-	c.balance()
-	return c
+	minute = (hour*60 + minute) % 1440
+	if minute < 0 {
+		minute += 1440
+	}
+	return Clock{minute}
 }
 
 // String is a stringer of Clock
 func (c Clock) String() string {
-	return fmt.Sprintf("%02d:%02d", c.hour, c.minute)
+	return fmt.Sprintf("%02d:%02d", c.minute/60, c.minute%60)
 }
 
-// Add provide a clock adding method
+// Add provide a Clock adding method
 func (c Clock) Add(minutes int) Clock {
-	c.minute += minutes
-	c.balance()
-	return c
+	return New(0, c.minute+minutes)
 }
 
-// Subtract provide a clock subtracting method
+// Subtract provide a Clock subtracting method
 func (c Clock) Subtract(minutes int) Clock {
-	c.minute -= minutes
-	c.balance()
-	return c
-}
-
-func (c *Clock) balance() {
-	total := (60*c.hour + c.minute) % 1440
-	if total < 0 {
-		total += 1440
-	}
-	c.hour = total / 60
-	c.minute = total % 60
+	return New(0, c.minute-minutes)
 }
