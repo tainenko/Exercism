@@ -1,19 +1,14 @@
 class Pangram {
-    private input: string
+    private readonly alphabetLength = 26
+    private readonly sentence: string
 
-    constructor(input: string) {
-        this.input = input
+    constructor(sentence: string) {
+        this.sentence = sentence
     }
 
     isPangram(): boolean {
-        const res = new Set()
-        this.input.toLowerCase().replace(/./g, c => {
-            if (c >= 'a' && c <= 'z') {
-                res.add(c)
-            }
-            return c
-        })
-        return res.size == 26
+        const alphaSet = new Set(this.sentence.toLowerCase().replace(/[^a-z]/g, ""))
+        return alphaSet.size == this.alphabetLength
     }
 }
 
