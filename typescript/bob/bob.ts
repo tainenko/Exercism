@@ -1,10 +1,11 @@
 class Bob {
 
     hey(speech: string): string {
-        if (this.isNothing(speech)) {
+        speech = speech.trim()
+        if (this.isEmpty(speech)) {
             return 'Fine. Be that way!'
         }
-        if (this.isQuestion(speech) && this.isYelling(speech)) {
+        if (this.isYellQuestion(speech)) {
             return 'Calm down, I know what I\'m doing!'
         }
         if (this.isYelling(speech)) {
@@ -16,17 +17,22 @@ class Bob {
         return 'Whatever.'
     }
 
-    private isQuestion(speech: string): boolean {
-        return speech.trimEnd().endsWith("?")
+    isEmpty(speech: string): boolean {
+        return !speech.length
     }
 
-    private isYelling(speech: string): boolean {
-        return /[A-Z]/.test(speech) && speech === speech.toUpperCase()
+    isQuestion(speech: string): boolean {
+        return speech.endsWith("?")
     }
 
-    private isNothing(speech: string): boolean {
-        return speech.length === 0 || /^\s*$/.test(speech)
+    isYelling(speech: string): boolean {
+        return (/([A-Z])/.test(speech) && !/([a-z])/.test(speech))
     }
+
+    isYellQuestion(speech: string): boolean {
+        return this.isQuestion(speech) && this.isYelling(speech)
+    }
+
 }
 
 export default Bob
