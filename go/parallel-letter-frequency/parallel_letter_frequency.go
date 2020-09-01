@@ -8,7 +8,7 @@ type FreqMap map[rune]int
 func Frequency(s string) FreqMap {
 	freqMap := FreqMap{}
 	for _, c := range s {
-		freqMap[c] ++
+		freqMap[c]++
 	}
 	return freqMap
 }
