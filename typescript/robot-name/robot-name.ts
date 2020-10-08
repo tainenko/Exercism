@@ -4,34 +4,34 @@ class RobotName {
     public name: string;
 
     constructor() {
-        this.name = this.getRandomRobotName();
+        this.name = this.getRobotName();
     }
 
     resetName(): void {
-        this.name = this.getRandomRobotName()
+        this.name = this.getRobotName()
     }
 
-    private getRandomLetter(): string {
-        let text = ""
-        const possible = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
-        for (let i = 0; i < 2; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        return text
-
-    }
-
-    private getRandomDigits(): string {
-        return Math.floor(Math.random() * 1000).toString().padStart(3, '0')
-    }
-
-    private getRandomRobotName(): string {
-        let name = this.getRandomLetter() + this.getRandomDigits()
-        while (usedNames.has(name)) {
-            name = this.getRandomLetter() + this.getRandomDigits()
-        }
+    private getRobotName(): string {
+        let name: string
+        do {
+            name = this.getRandomPrefixLetters() + this.getRandom3Digits()
+        } while (usedNames.has(name))
         usedNames.add(name)
         return name
+    }
+
+    private getRandomPrefixLetters(): string {
+        let upperLetter = ""
+        const possible = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
+        for (let i = 0; i < 2; i++) {
+            upperLetter += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return upperLetter
+
+    }
+
+    private getRandom3Digits(): string {
+        return Math.floor(Math.random() * 1000).toString().padStart(3, '0')
     }
 }
 
