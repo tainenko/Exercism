@@ -27,30 +27,16 @@ func Build(records []Record) (*Node, error) {
 	})
 	for i, record := range records {
 		id, parentID := record.ID, record.Parent
-		if i != id {
-			return nil, fmt.Errorf("nodes must be continuous")
-		}
-		if id == parentID && id != 0 {
-			return nil, fmt.Errorf("non-root node cannot have itself as parent")
-		}
-		_, ok := nodes[id]
-		if ok {
-			return nil, fmt.Errorf("duplicate node")
+		if i != id || parentID > id || id == parentID && id != 0 {
+			return nil, fmt.Errorf("not in sequence or has bad parent")
 		}
 		node := &Node{ID: id}
 		nodes[id] = node
 		if id == 0 {
-			if parentID != 0 {
-				return nil, fmt.Errorf("root node has parent")
-			}
 			root = node
 			continue
 		}
-		parent, ok := nodes[parentID]
-		if !ok {
-			parent = &Node{ID: parentID}
-			nodes[parentID] = parent
-		}
+		parent := nodes[parentID]
 		parent.Children = append(parent.Children, node)
 	}
 
