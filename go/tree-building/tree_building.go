@@ -20,7 +20,6 @@ type Record struct {
 // Build function receive an array of Record as input and return the root node of tree structure.
 // if the input cant build a valid tree, it would return an error.
 func Build(records []Record) (*Node, error) {
-	var root *Node = nil
 	nodes := map[int]*Node{}
 	sort.Slice(records, func(i, j int) bool {
 		return records[i].ID < records[j].ID
@@ -33,16 +32,10 @@ func Build(records []Record) (*Node, error) {
 		node := &Node{ID: id}
 		nodes[id] = node
 		if id == 0 {
-			root = node
 			continue
 		}
 		parent := nodes[parentID]
 		parent.Children = append(parent.Children, node)
 	}
-
-	if root == nil && len(records) != 0 {
-		return nil, fmt.Errorf("no root node")
-	}
-
-	return root, nil
+	return nodes[0], nil
 }
