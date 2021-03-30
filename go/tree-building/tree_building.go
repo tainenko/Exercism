@@ -24,18 +24,16 @@ func Build(records []Record) (*Node, error) {
 	sort.Slice(records, func(i, j int) bool {
 		return records[i].ID < records[j].ID
 	})
-	for i, record := range records {
-		id, parentID := record.ID, record.Parent
-		if i != id || parentID > id || id == parentID && id != 0 {
+	for i, r := range records {
+		if i != r.ID || r.Parent > r.ID || r.ID == r.Parent && r.ID != 0 {
 			return nil, fmt.Errorf("not in sequence or has bad parent")
 		}
-		node := &Node{ID: id}
-		nodes[id] = node
-		if id == 0 {
-			continue
+		node := &Node{ID: r.ID}
+		nodes[r.ID] = node
+		if r.ID > 0 {
+			parent := nodes[r.Parent]
+			parent.Children = append(parent.Children, node)
 		}
-		parent := nodes[parentID]
-		parent.Children = append(parent.Children, node)
 	}
 	return nodes[0], nil
 }
