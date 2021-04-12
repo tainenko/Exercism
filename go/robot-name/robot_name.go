@@ -1,37 +1,41 @@
 package robotname
 
-import "math/rand"
+import (
+	"math/rand"
+	"time"
+)
 
+// Robot struct has a name attribute
 type Robot struct {
 	name string
 }
 
-func randSeq(n int) string {
-	var letters = []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-	b := make([]rune, n)
+var nameMap = make(map[string]bool)
+var seededRand = rand.New(rand.NewSource(time.Now().UnixNano()))
+
+func getStringWithCharset(length int, charset string) string {
+	b := make([]byte, length)
 	for i := range b {
-		b[i] = letters[rand.Intn(len(letters))]
+		b[i] = charset[seededRand.Intn(len(charset))]
 	}
 	return string(b)
 }
 
-func randDigit(n int) string {
-	s := ""
-	for i := 0; i < n; i++ {
-		s += (string)(rune(rand.Intn(10) + 48))
-	}
-	return s
-}
-
+// Name function give the Robot instance an unused random name.
 func (r *Robot) Name() (string, error) {
 	if r.name == "" {
-		prefix := randSeq(2)
-		suffix := randDigit(3)
-		r.name = prefix + suffix
+		name := "xxxx"
+		nameMap[name] = true
+		for nameMap[name] {
+			name = getStringWithCharset(2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + getStringWithCharset(3, "0123456789")
+		}
+		nameMap[name] = true
+		r.name = name
 	}
 	return r.name, nil
 }
 
+//Reset function would set the Robot name as empty
 func (r *Robot) Reset() {
 	r.name = ""
 }
