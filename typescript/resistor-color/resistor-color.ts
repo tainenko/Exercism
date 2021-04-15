@@ -1,4 +1,4 @@
-const colorMap: Record<string, number> = {
+const color2Digit: Record<string, number> = {
     "black": 0,
     "brown": 1,
     "red": 2,
@@ -11,7 +11,7 @@ const colorMap: Record<string, number> = {
     "white": 9
 }
 export const colorCode = (color: string): number => {
-    return colorMap[color]
+    return color2Digit[color]
 }
 
 export const COLORS: string[] = [
