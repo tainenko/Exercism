@@ -24,15 +24,19 @@ func getStringWithCharset(length int, charset string) string {
 // Name function give the Robot instance an unused random name.
 func (r *Robot) Name() (string, error) {
 	if r.name == "" {
-		name := "xxxx"
-		nameMap[name] = true
-		for nameMap[name] {
-			name = getStringWithCharset(2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + getStringWithCharset(3, "0123456789")
+		for {
+			r.name = getName()
+			if !nameMap[r.name] {
+				break
+			}
 		}
-		nameMap[name] = true
-		r.name = name
+		nameMap[r.name] = true
 	}
 	return r.name, nil
+}
+
+func getName() string {
+	return getStringWithCharset(2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + getStringWithCharset(3, "0123456789")
 }
 
 //Reset function would set the Robot name as empty
