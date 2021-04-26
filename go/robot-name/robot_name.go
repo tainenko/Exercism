@@ -33,7 +33,7 @@ func getNewName() string {
 	var name string
 	for {
 		name = getStringWithCharset(2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") + getStringWithCharset(3, "0123456789")
-		if !nameMap[name] {
+		if _, ok := nameMap[name]; !ok {
 			break
 		}
 	}
