@@ -12,7 +12,7 @@ func Use(o ResourceOpener, input string) (err error) {
 	defer res.Close()
 	defer func() {
 		if r := recover(); r != nil {
-			if fe, ok := r.(FrobError); ok{
+			if fe, ok := r.(FrobError); ok {
 				res.Defrob(fe.defrobTag)
 			}
 			err = r.(error)
