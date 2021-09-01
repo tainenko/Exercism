@@ -5,16 +5,23 @@
 // https://golang.org/doc/effective_go.html#commentary
 package triangle
 
+import (
+	"math"
+	"sort"
+)
 
-// Notice KindFromSides() returns this type. Pick a suitable data type.
+// Kind represents the type of triangle
 type Kind int
 
 const (
-    // Pick values for the following identifiers used by the test program.
-    NaT = iota // not a triangle
-    Equ // equilateral
-    Iso // isosceles
-    Sca // scalene
+	// NaT not a triangle
+	NaT = iota
+	// Equ equilateral
+	Equ
+	// Iso isosceles
+	Iso
+	// Sca scalene
+	Sca
 )
 
 // KindFromSides should have a comment documenting it.
@@ -23,6 +30,23 @@ func KindFromSides(a, b, c float64) Kind {
 	// Then remove all the stock comments.
 	// They're here to help you get started but they only clutter a finished solution.
 	// If you leave them in, reviewers may protest!
-	var k Kind
-	return k
+	sides := [3]float64{a, b, c}
+	sort.Float64s(sides[:])
+	for _, side := range sides {
+		if side <= 0 || math.IsNaN(side) || math.IsInf(side, 0) {
+			return NaT
+		}
+	}
+
+	a, b, c = sides[0], sides[1], sides[2]
+	if a+b < c {
+		return NaT
+	}
+	if a == b && b == c {
+		return Equ
+	}
+	if a == b || a == c || b == c {
+		return Iso
+	}
+	return Sca
 }
