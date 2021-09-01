@@ -2,45 +2,51 @@ package zero
 
 // EmptyBool returns an empty (zero value) bool
 func EmptyBool() bool {
-	panic("please implement the EmptyBool function")
+	return false
 }
 
 // EmptyInt returns an empty (zero value) int
 func EmptyInt() int {
-	panic("please implement the EmptyInt function")
+	return 0
 }
 
 // EmptyString returns an empty (zero value) string
 func EmptyString() string {
-	panic("please implement the EmptyString function")
+	return ""
 }
 
 // EmptyFunc returns an empty (zero value) func
 func EmptyFunc() func() {
-	panic("please implement the EmptyFunc function")
+	var ret func()
+	return ret
 }
 
 // EmptyPointer returns an empty (zero value) pointer
 func EmptyPointer() *int {
-	panic("please implement the EmptyPointer function")
+	var p *int
+	return p
 }
 
 // EmptyMap returns an empty (zero value) map
 func EmptyMap() map[int]int {
-	panic("please implement the EmptyMap function")
+	var ret map[int]int
+	return ret
 }
 
 // EmptySlice returns an empty (zero value) slice
 func EmptySlice() []int {
-	panic("please implement the EmptySlice function")
+	var ret []int
+	return ret
 }
 
 // EmptyChannel returns an empty (zero value) channel
 func EmptyChannel() chan int {
-	panic("please implement the EmptyChannel function")
+	var ch chan int
+	return ch
 }
 
 // EmptyInterface returns an empty (zero value) interface
 func EmptyInterface() interface{} {
-	panic("please implement the EmptyInterface function")
+	var ret interface{}
+	return ret
 }
