@@ -1,11 +1,13 @@
 package dna
 
+import "errors"
+
 // Histogram is a mapping from nucleotide to its count in given DNA.
 // Choose a suitable data type.
-type Histogram
+type Histogram map[rune]int
 
 // DNA is a list of nucleotides. Choose a suitable data type.
-type DNA
+type DNA []rune
 
 // Counts generates a histogram of valid nucleotides in the given DNA.
 // Returns an error if d contains an invalid nucleotide.
@@ -15,5 +17,13 @@ type DNA
 // Here, the Counts method has a receiver of type DNA named d.
 func (d DNA) Counts() (Histogram, error) {
 	var h Histogram
+	h = Histogram{'A': 0, 'C': 0, 'G': 0, 'T': 0}
+	for _, r := range d {
+		cnt, ok := h[r]
+		if !ok {
+			return Histogram{}, errors.New("strand with invalid nucleotides")
+		}
+		h[r] = cnt + 1
+	}
 	return h, nil
 }
