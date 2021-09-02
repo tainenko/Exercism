@@ -17,7 +17,7 @@ func TestWelcome(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.description, func(t *testing.T) {
 			if got := Welcome(tt.name); got != tt.want {
-				t.Errorf("Welcome(%s) = %d, want %d", tt.name, got, tt.want)
+				t.Errorf("Welcome(%s) = %s, want %s", tt.name, got, tt.want)
 			}
 		})
 	}
@@ -40,7 +40,7 @@ func TestHappyBirthday(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.description, func(t *testing.T) {
 			if got := HappyBirthday(tt.name, tt.age); got != tt.want {
-				t.Errorf("HappyBirthday(%s) = %d, want %d", tt.name, tt.age, got, tt.want)
+				t.Errorf("HappyBirthday(%s,%d) = %s, want %s", tt.name, tt.age, got, tt.want)
 			}
 		})
 	}
@@ -52,7 +52,7 @@ func TestAssignTable(t *testing.T) {
 		name          string
 		direction     string
 		tableNumber   int
-		distance      float32
+		distance      float64
 		neighbourName string
 		want          string
 	}{
@@ -69,7 +69,7 @@ func TestAssignTable(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.description, func(t *testing.T) {
 			if got := AssignTable(tt.name, tt.tableNumber, tt.direction, tt.distance, tt.neighbourName); got != tt.want {
-				t.Errorf("AssignTable(%s,%s,%s,%s) = %d, want %d", tt.name, tt.tableNumber, tt.direction, tt.distance, tt.neighbourName, got, tt.want)
+				t.Errorf("AssignTable(%s,%d,%s,%f,%s) = %s, want %s", tt.name, tt.tableNumber, tt.direction, tt.distance, tt.neighbourName, got, tt.want)
 			}
 		})
 	}
