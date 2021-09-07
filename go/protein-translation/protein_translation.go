@@ -12,24 +12,30 @@ var codon2Protein = map[string]string{
 	"UGG": "Tryptophan",
 	"UAA": "STOP", "UAG": "STOP", "UGA": "STOP"}
 
+// ErrStop is returned when we meet STOP codon
 var ErrStop = errors.New("codon stop code")
+
+// ErrInvalidBase returned when we meet Invalid codon
 var ErrInvalidBase = errors.New("invalid base")
 
-func FromRNA(rna string) (codons []string, err error) {
-	codon := ""
+//FromRNA converts codons to protein list
+func FromRNA(rna string) ([]string, error) {
+	var proteins []string
 	for i := 0; i < len(rna); i += 3 {
 		nucleotide := rna[i : i+3]
-		codon, err = FromCodon(nucleotide)
+		protein, err := FromCodon(nucleotide)
 		if err == ErrStop {
-			return codons, nil
+			return proteins, nil
 		} else if err == ErrInvalidBase {
-			return codons, ErrInvalidBase
+			return proteins, ErrInvalidBase
 		}
-		codons = append(codons, codon)
+		proteins = append(proteins, protein)
 	}
-	return codons, nil
+	return proteins, nil
 }
-func FromCodon(codon string) (nucleotide string, err error) {
+
+// FromCodon converts a codon to a protein
+func FromCodon(codon string) (string, error) {
 	protein := codon2Protein[codon]
 	if protein == "STOP" {
 		return "", ErrStop
