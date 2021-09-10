@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44d4d0fa-6d93-41f4-99ed-8e91a9a840cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../bank-account/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bank-account/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank-account/bank_account.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bank-account/bank_account.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank-account/bank_account_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../bank-account/bank_account_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blackjack/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../blackjack/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booking_up_for_beauty.go" beforeDir="false" afterPath="$PROJECT_DIR$/booking_up_for_beauty.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cars-assemble/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cars-assemble/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../clock/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../grains/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../grains/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lasagna/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lasagna/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../luhn/luhn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../luhn/luhn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../parallel-letter-frequency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../parallel-letter-frequency/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../parallel-letter-frequency/parallel_letter_frequency.go" beforeDir="false" afterPath="$PROJECT_DIR$/../parallel-letter-frequency/parallel_letter_frequency.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protein-translation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../protein-translation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proverb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../proverb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proverb/proverb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../proverb/proverb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rna-transcription/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rna-transcription/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tree-building/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tree-building/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/bob/bob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/bob/bob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/gigasecond/gigasecond.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/gigasecond/gigasecond.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/matrix/matrix.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/matrix/matrix.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/matrix/matrix.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/matrix/matrix.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/reverse-string/reverse-string.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/reverse-string/reverse-string.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/two-fer/two-fer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/two-fer/two-fer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../typescript/word-count/word-count.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../typescript/word-count/word-count.test.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file:///usr/local/opt/go/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1xxAym2SHJcJv84YyfrxgT5P6CV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>
