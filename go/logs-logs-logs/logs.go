@@ -20,14 +20,16 @@ func MessageLen(line string) int {
 // LogLevel extracts the log level string from the provided log line.
 func LogLevel(line string) string {
 	s := strings.Split(line, ":")
-	logLevel := s[0]
-	return strings.ToLower(logLevel[1 : len(logLevel)-1])
+	level := strings.ToLower(s[0])
+	level = strings.TrimLeft(level, "[")
+	level = strings.TrimRight(level, "]")
+	return level
 }
 
 // Reformat reformats the log line in the format `message (logLevel)`.
 func Reformat(line string) string {
 	message := Message(line)
-	logLevel := LogLevel(line)
-	return fmt.Sprintf("%s (%s)", message, logLevel)
+	level := LogLevel(line)
+	return fmt.Sprintf("%s (%s)", message, level)
 
 }
