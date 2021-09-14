@@ -9,21 +9,46 @@ type Chessboard map[byte]Rank
 // CountInRank returns how many squares are occupied in the chessboard,
 // within the given rank
 func (cb Chessboard) CountInRank(rank byte) (ret int) {
-	panic("Please implement CountInRank()")
+	for _, val := range cb[rank] {
+		if val {
+			ret++
+		}
+	}
+	return ret
 }
 
 // CountInFile returns how many squares are occupied in the chessboard,
 // within the given file
 func (cb Chessboard) CountInFile(file int) (ret int) {
-	panic("Please implement CountInFile()")
+	if file > 8 {
+		return 0
+	}
+	for _, b := range cb {
+		if b[file-1] {
+			ret++
+		}
+	}
+	return ret
 }
 
 // CountAll should count how many squares are present in the chessboard
 func (cb Chessboard) CountAll() (ret int) {
-	panic("Please implement CountAll()")
+	for _, r := range cb {
+		for range r {
+			ret++
+		}
+	}
+	return ret
 }
 
 // CountOccupied returns how many squares are occupied in the chessboard
 func (cb Chessboard) CountOccupied() (ret int) {
-	panic("Please implement CountOccupied()")
+	for _, r := range cb {
+		for _, v := range r {
+			if v {
+				ret++
+			}
+		}
+	}
+	return ret
 }
