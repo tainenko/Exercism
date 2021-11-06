@@ -6,38 +6,52 @@
 package bob
 
 import (
+	"regexp"
 	"strings"
-	"unicode"
 )
 
-func isStringUpper(input string) bool {
-	r := []rune(input)
-
-	for i := 0; i < len(r); i++ {
-		ch := r[i]
-		if unicode.IsLetter(ch) {
-			if unicode.IsUpper(ch) == false {
-				return false
-			}
-		}
-
-	}
-	return true
+func hasAlpha(s string) bool {
+	reg := regexp.MustCompile(`[a-zA-Z]+`)
+	return reg.MatchString(s)
 }
 
-// Hey should have a comment documenting it.
-func Hey(remark string) string {
-	// Write some code here to pass the test suite.
-	// Then remove all the stock comments.
-	// They're here to help you get started but they only clutter a finished solution.
-	// If you leave them in, reviewers may protest!
-	if strings.Contains(remark, "?") && isStringUpper(remark) {
-		return "Calm down, I know what I'm doing!"
-	} else if strings.Contains(remark, "?") {
-		return "Sure."
-	} else if isStringUpper(remark) {
-		return "Whoa, chill out!"
-	} else {
-		return "Whatever."
+func isYelling(s string) bool {
+	if !hasAlpha(s) {
+		return false
 	}
+	upper := strings.ToUpper(s)
+	return upper == s
+}
+
+func isQuestion(s string) bool {
+	if len(s) == 0 {
+		return false
+	}
+	return s[len(s)-1] == '?'
+}
+
+func isYellingQustion(s string) bool {
+	return isQuestion(s) && isYelling(s) && hasAlpha(s)
+}
+
+func isSilence(s string) bool {
+	return len(s) == 0
+}
+
+// Hey responses to the question with limited answers.
+func Hey(remark string) string {
+	remark = strings.TrimSpace(remark)
+	if isSilence(remark) {
+		return "Fine. Be that way!"
+	}
+	if isYellingQustion(remark) {
+		return "Calm down, I know what I'm doing!"
+	}
+	if isQuestion(remark) {
+		return "Sure."
+	}
+	if isYelling(remark) {
+		return "Whoa, chill out!"
+	}
+	return "Whatever."
 }
