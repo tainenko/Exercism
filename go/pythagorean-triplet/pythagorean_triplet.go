@@ -1,11 +1,26 @@
 package pythagorean
 
+import (
+	"math"
+)
+
+// Triplet  is a set of three natural numbers, {a, b, c}, for which satisfies a^2+b^2=c^2
 type Triplet [3]int
 
 // Range returns a list of all Pythagorean triplets with sides in the
 // range min to max inclusive.
 func Range(min, max int) []Triplet {
-	panic("Please implement the Range function")
+	res := []Triplet{}
+	for i := min; i <= max-2; i++ {
+		for j := i + 1; j <= max-1; j++ {
+			for k := j + 1; k <= max; k++ {
+				if math.Pow(float64(i), 2)+math.Pow(float64(j), 2) == math.Pow(float64(k), 2) {
+					res = append(res, Triplet{i, j, k})
+				}
+			}
+		}
+	}
+	return res
 }
 
 // Sum returns a list of all Pythagorean triplets where the sum a+b+c
@@ -14,5 +29,17 @@ func Range(min, max int) []Triplet {
 // t[0] <= t[1] <= t[2], and the list of triplets must be in lexicographic
 // order.
 func Sum(p int) []Triplet {
-	panic("Please implement the Sum function")
+	res := []Triplet{}
+	for i := 1; i <= p/3; i++ {
+		for j := i + 1; j <= p-i; j++ {
+			k := p - i - j
+			if k < j {
+				continue
+			}
+			if math.Pow(float64(i), 2)+math.Pow(float64(j), 2) == math.Pow(float64(k), 2) {
+				res = append(res, Triplet{i, j, k})
+			}
+		}
+	}
+	return res
 }
