@@ -1,5 +1,17 @@
 package summultiples
 
 func SumMultiples(limit int, divisors ...int) int {
-	panic("Please implement the SumMultiples function")
+	total := 0
+	for i := 1; i < limit; i++ {
+		for _, divisor := range divisors {
+			if divisor == 0 {
+				continue
+			}
+			if i%divisor == 0 {
+				total += i
+				break
+			}
+		}
+	}
+	return total
 }
