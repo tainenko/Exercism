@@ -121,22 +121,22 @@ func TestSpeedString(t *testing.T) {
 func TestMeteorologyDataString(t *testing.T) {
 	tests := []struct {
 		name            string
-		meteorologyData MeteorologyData
+		meteorologyData Data
 		want            string
 	}{
 		{
 			name:            "Athens",
-			meteorologyData: MeteorologyData{"Athens", Temperature{21, Celsius}, "N", Speed{16, KmPerHour}, 63},
+			meteorologyData: Data{"Athens", Temperature{21, Celsius}, "N", Speed{16, KmPerHour}, 63},
 			want:            "Athens: 21 °C, Wind N at 16 km/h, 63% Humidity",
 		},
 		{
 			name:            "Delhi",
-			meteorologyData: MeteorologyData{"Delhi", Temperature{33, Celsius}, "W", Speed{2, MilesPerHour}, 23},
+			meteorologyData: Data{"Delhi", Temperature{33, Celsius}, "W", Speed{2, MilesPerHour}, 23},
 			want:            "Delhi: 33 °C, Wind W at 2 mph, 23% Humidity",
 		},
 		{
 			name:            "San Francisco",
-			meteorologyData: MeteorologyData{"San Francisco", Temperature{57, Fahrenheit}, "NW", Speed{19, MilesPerHour}, 60},
+			meteorologyData: Data{"San Francisco", Temperature{57, Fahrenheit}, "NW", Speed{19, MilesPerHour}, 60},
 			want:            "San Francisco: 57 °F, Wind NW at 19 mph, 60% Humidity",
 		},
 	}
